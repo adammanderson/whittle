@@ -24,7 +24,7 @@
     "electron-start": "node src/electron-wait-react",
     "react-start": "react-scripts start",
     "pack": "build --dir",
-    "dist": "npm run build && build",
+    "dist": "yarn build && build",
     "postinstall": "install-app-deps"
   },
   "build": {
