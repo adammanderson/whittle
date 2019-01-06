@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import './App.css'
 import Paper from './components/Paper'
 import Preview from './components/Preview'
+import Sections from './components/Sections'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -29,6 +30,9 @@ class App extends Component {
 
     return (
       <AppWrapper>
+        <Sections
+          content={content}
+        />
         <Paper
           content={content}
           handleContent={this.handleContent}
