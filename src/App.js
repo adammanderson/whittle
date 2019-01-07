@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import './App.css'
 import Paper from './components/Paper'
 import Preview from './components/Preview'
 import Sections from './components/Sections'
