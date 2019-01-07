@@ -15,6 +15,7 @@ class App extends Component {
     super(props)
     this.state = {
       content: '# Whittle\nWelcome to whittle, the paper app.\n\n## Hey',
+      cursorPosition: 0,
     }
   }
 
@@ -24,22 +25,27 @@ class App extends Component {
     })
   }
 
-  handleGoToLine(heading) {
-    console.log(heading)
+  handleCursorPosition = (cursorPosition) => {
+    console.log(cursorPosition)
+    console.log(document.createRange())
+    this.setState({
+      cursorPosition,
+    })
   }
 
   render() {
-    const { content } = this.state
+    const { content, cursorPosition } = this.state
 
     return (
       <AppWrapper>
         <Sections
           content={content}
-          handleGoToLine={this.handleGoToLine}
         />
         <Paper
           content={content}
+          cursorPosition={cursorPosition}
           handleContent={this.handleContent}
+          handleCursorPosition={this.handleCursorPosition}
         />
         <Preview
           content={content}

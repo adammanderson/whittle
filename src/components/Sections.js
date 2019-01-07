@@ -23,11 +23,10 @@ const Sections = ({ content, handleGoToLine }) => {
     root: ({ children }) => {
       const headings = children.reduce((acc, { key, props }) => {
         if (!key.includes('heading') || props.level > 2) return acc
-
         return acc.concat(props.children.map(child => ({
           value: child.props.value,
           level: props.level,
-          line: child.props.nodeKey.split('-')[1],
+          caret: window.getSelection().baseOffset,
         })))
       }, [])
 

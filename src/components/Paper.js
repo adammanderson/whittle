@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { debounce } from 'debounce'
 import styled from 'styled-components'
 import replaceCaret from '../utils/replace-caret'
+import getCursorPosition from '../utils/get-cursor-position'
 
 const PaperWrapper = styled.div`
   flex: 1;
@@ -35,9 +36,10 @@ class Paper extends Component {
   }
 
   handleContent = (e) => {
-    const { handleContent } = this.props
+    const { handleContent, handleCursorPosition } = this.props
     const content = e.target.innerText
     handleContent(content)
+    handleCursorPosition(getCursorPosition(this.paperRef))
   }
 
   render() {
@@ -58,6 +60,7 @@ class Paper extends Component {
 Paper.propTypes = {
   content: PropTypes.string.isRequired,
   handleContent: PropTypes.func.isRequired,
+  handleCursorPosition: PropTypes.func.isRequired,
 }
 
 export default Paper
