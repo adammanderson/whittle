@@ -14,7 +14,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      content: '# Whittle\nWelcome to whittle, the paper app.',
+      content: '# Whittle\nWelcome to whittle, the paper app.\n\n## Hey',
     }
   }
 
@@ -24,6 +24,10 @@ class App extends Component {
     })
   }
 
+  handleGoToLine(heading) {
+    console.log(heading)
+  }
+
   render() {
     const { content } = this.state
 
@@ -31,6 +35,7 @@ class App extends Component {
       <AppWrapper>
         <Sections
           content={content}
+          handleGoToLine={this.handleGoToLine}
         />
         <Paper
           content={content}
